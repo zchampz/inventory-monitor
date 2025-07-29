@@ -28,8 +28,16 @@
       "description": "Mailgun sending domain",
       "required": true
     },
+    "FROM_EMAIL": {
+      "description": "From Email address",
+      "required": true
+    },
     "TO_EMAIL": {
       "description": "Email address to receive alerts",
+      "required": true
+    },
+    "TESLA_URL": {
+      "description": "tesla url",
       "required": true
     }
   },
