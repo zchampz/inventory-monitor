@@ -25,7 +25,15 @@ let lastHash = null;
 
 async function checkInventory() {
   try {
-    const res = await axios.get(TESLA_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+  const res = await axios.get(TESLA_URL, {
+  headers: {
+    'User-Agent':
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
+      '(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+  }
+});
     const $ = cheerio.load(res.data);
     const pageText = $('body').text();
     const currentHash = crypto.createHash('sha256').update(pageText).digest('hex');
