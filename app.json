@@ -1,0 +1,48 @@
+{
+  "name": "Tesla Inventory Monitor",
+  "description": "Monitors Tesla Blue Model Y inventory and sends SMS + Email alerts when new listings appear.",
+  "repository": "https://github.com/zchampz/inventory-monitor",
+  "keywords": ["node", "tesla", "twilio", "mailgun", "inventory", "alerts"],
+  "env": {
+    "TWILIO_SID": {
+      "description": "Your Twilio Account SID",
+      "required": true
+    },
+    "TWILIO_AUTH": {
+      "description": "Your Twilio Auth Token",
+      "required": true
+    },
+    "TWILIO_FROM": {
+      "description": "Twilio phone number sending the SMS",
+      "required": true
+    },
+    "TWILIO_TO": {
+      "description": "Phone number receiving the SMS",
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "description": "Mailgun API Key",
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "description": "Mailgun sending domain",
+      "required": true
+    },
+    "TO_EMAIL": {
+      "description": "Email address to receive alerts",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
